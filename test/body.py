@@ -12,7 +12,7 @@ from config import create_api
 api = create_api()
 
 
-def check_for_followers(api,recent_following_user1,user_1,recent_following_user2,user_2,recent_following_user3,user_3,recent_following_user4,user_4,recent_following_user5,user_5,recent_following_user6,user_6):
+def check_for_followers(api,recent_following_user1,user_1,recent_following_user2,user_2,recent_following_user3,user_3,recent_following_user4,user_4,recent_following_user5,user_5):
 
     while True:
 
@@ -80,19 +80,6 @@ def check_for_followers(api,recent_following_user1,user_1,recent_following_user2
                 requests.get(base_url)
                 time.sleep(5)
                 
-    
-       time.sleep(15)
-
-        for user in tweepy.Cursor(api.friends, screen_name=user_6).items(1):
-            print("checking for new followings of "+user_6)
-            latest_following = str(user.screen_name)
-            if (latest_following not in recent_following_user6):
-                recent_following_user6.append(latest_following)
-                print(latest_following)
-                message=user_6+" just followed " + latest_following +" \nClick on this link to view the profile : https://twitter.com/"+latest_following
-                base_url='https://api.telegram.org/bot1691472368:AAGOOBgFwZHzF5EWod7FD_zt6oLKjGaxf8E/sendMessage?chat_id=-1001441789928&text={}'.format(message)
-                requests.get(base_url)
-                time.sleep(5)
 
         time.sleep(20*60)
             
@@ -136,7 +123,7 @@ time.sleep(120)
 
 
 recent_following_user5=[]
-user_5="Wangarian1"
+user_5="RayJay888"
 for user in tweepy.Cursor(api.friends, screen_name=user_5).items(10):
     new_follower=str(user.screen_name)
     recent_following_user5.append(new_follower)
@@ -144,20 +131,13 @@ for user in tweepy.Cursor(api.friends, screen_name=user_5).items(10):
 time.sleep(120)
 
 
-recent_following_user6=[]
-user_6="RayJay888"
-for user in tweepy.Cursor(api.friends, screen_name=user_6).items(10):
-    new_follower=str(user.screen_name)
-    recent_following_user6.append(new_follower)
-    
-time.sleep(120)
 
 #calling main function
 
 while True:
     print("collected initial datas")
     time.sleep(119)
-    check_for_followers(api,recent_following_user1,user_1,recent_following_user2,user_2,recent_following_user3,user_3,recent_following_user4,user_4,recent_following_user5,user_5,recent_following_user6,user_6)
+    check_for_followers(api,recent_following_user1,user_1,recent_following_user2,user_2,recent_following_user3,user_3,recent_following_user4,user_4,recent_following_user5,user_5)
     time.sleep(10*5)
 print('\n\n\n                   finished following all                           ')
 

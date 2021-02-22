@@ -12,7 +12,7 @@ from config import create_api
 api = create_api()
 
 
-def check_for_followers(api,recent_following_user1,user_1,recent_following_user2,user_2,recent_following_user3,user_3,recent_following_user4,user_4,recent_following_user5,user_5):
+def check_for_followers(api,recent_following_user1,user_1,recent_following_user2,user_2,recent_following_user3,user_3,recent_following_user4,user_4,recent_following_user5,user_5,recent_following_user6,user_6):
 
     while True:
 
@@ -76,6 +76,20 @@ def check_for_followers(api,recent_following_user1,user_1,recent_following_user2
                 recent_following_user5.append(latest_following)
                 print(latest_following)
                 message=user_5+" just followed " + latest_following +" \nClick on this link to view the profile : https://twitter.com/"+latest_following
+                base_url='https://api.telegram.org/bot1691472368:AAGOOBgFwZHzF5EWod7FD_zt6oLKjGaxf8E/sendMessage?chat_id=-1001441789928&text={}'.format(message)
+                requests.get(base_url)
+                time.sleep(5)
+                
+    
+       time.sleep(15)
+
+        for user in tweepy.Cursor(api.friends, screen_name=user_6).items(1):
+            print("checking for new followings of "+user_6)
+            latest_following = str(user.screen_name)
+            if (latest_following not in recent_following_user6):
+                recent_following_user6.append(latest_following)
+                print(latest_following)
+                message=user_6+" just followed " + latest_following +" \nClick on this link to view the profile : https://twitter.com/"+latest_following
                 base_url='https://api.telegram.org/bot1691472368:AAGOOBgFwZHzF5EWod7FD_zt6oLKjGaxf8E/sendMessage?chat_id=-1001441789928&text={}'.format(message)
                 requests.get(base_url)
                 time.sleep(5)

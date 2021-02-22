@@ -143,7 +143,7 @@ time.sleep(120)
 while True:
     print("collected initial datas")
     time.sleep(119)
-    check_for_followers(api,recent_following_user1,user_1,recent_following_user2,user_2,recent_following_user3,user_3,recent_following_user4,user_4,recent_following_user5,user_5)
+    check_for_followers(api,recent_following_user1,user_1,recent_following_user2,user_2,recent_following_user3,user_3,recent_following_user4,user_4,recent_following_user5,user_5,recent_following_user6,user_6)
     time.sleep(10*5)
 print('\n\n\n                   finished following all                           ')
 

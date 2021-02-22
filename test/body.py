@@ -131,7 +131,7 @@ time.sleep(120)
 
 
 recent_following_user6=[]
-user_5="RayJay888"
+user_6="RayJay888"
 for user in tweepy.Cursor(api.friends, screen_name=user_5).items(10):
     new_follower=str(user.screen_name)
     recent_following_user5.append(new_follower)

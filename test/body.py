@@ -130,8 +130,6 @@ for user in tweepy.Cursor(api.friends, screen_name=user_5).items(10):
 
 time.sleep(120)
 
-
-
 #calling main function
 
 while True:
